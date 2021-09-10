@@ -1,19 +1,17 @@
-// hashmaps.rs
+// slices.rs
 
-use std::collections::HashMap; 
-
-fn main() { 
-    let mut fruits = HashMap::new(); 
-    fruits.insert("apple", 3);
-    fruits.insert("mango", 6);
-    fruits.insert("orange", 2);
-    fruits.insert("avocado", 7);
-    for (k, v) in &fruits {
-        println!("I got {} {}", v, k);
+fn main() {
+    let mut numbers: [u8; 4] = [1, 2, 3, 4];
+    {
+        let all: &[u8] = &numbers[..];
+        println!("All of them: {:?}", all);
     }
 
-    fruits.remove("orange");
-    let old_avocado = fruits["avocado"];
-    fruits.insert("avocado", old_avocado + 5);
-    println!("\nI now have {} avocados", fruits["avocado"]);
+    {
+        let first_two: &mut [u8] = &mut numbers[0..2];
+        first_two[0] = 100;
+        first_two[1] = 99;
+    }
+
+    println!("Look ma! I can modify through slices: {:?}", numbers);
 }
