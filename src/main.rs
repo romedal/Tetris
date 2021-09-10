@@ -1,8 +1,9 @@
-// tuples.rs
+// arrays.rs
 
 fn main() { 
-    let num_and_str: (u8, &str) = (40, "Have a good day!");
-    println!("{:?}", num_and_str);
-    let (num, string) = num_and_str;
-    println!("From tuple: Number: {}, String: {}", num, string);
+    let numbers: [u8; 10] = [1, 2, 3, 4, 5, 7, 8, 9, 10, 11]; 
+    let floats = [0.1f64, 0.2, 0.3]; 
+
+    println!("Number: {}", numbers[5]);
+    println!("Float: {}", floats[2]);
 }
