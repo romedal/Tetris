@@ -1,19 +1,19 @@
-// vec.rs
+// hashmaps.rs
 
-fn main() {
-    let mut numbers_vec: Vec<u8> = Vec::new(); 
-    numbers_vec.push(1); 
-    numbers_vec.push(2); 
+use std::collections::HashMap; 
 
-    let mut vec_with_macro = vec![1]; 
-    vec_with_macro.push(2);
-    let _ = vec_with_macro.pop();    // value ignored with `_`
+fn main() { 
+    let mut fruits = HashMap::new(); 
+    fruits.insert("apple", 3);
+    fruits.insert("mango", 6);
+    fruits.insert("orange", 2);
+    fruits.insert("avocado", 7);
+    for (k, v) in &fruits {
+        println!("I got {} {}", v, k);
+    }
 
-    let message = if numbers_vec == vec_with_macro {
-        "They are equal"
-    } else {
-        "Nah! They look different to me"
-    };
-
-    println!("{} {:?} {:?}", message, numbers_vec, vec_with_macro); 
+    fruits.remove("orange");
+    let old_avocado = fruits["avocado"];
+    fruits.insert("avocado", old_avocado + 5);
+    println!("\nI now have {} avocados", fruits["avocado"]);
 }
