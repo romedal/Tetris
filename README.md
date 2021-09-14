@@ -1,2 +1,4 @@
-Tetris project
-Not finished yet
+Working with SDL
+  - window
+  - canvas
+  - picture
